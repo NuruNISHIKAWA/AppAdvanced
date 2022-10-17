@@ -1,0 +1,88 @@
+body {
+  background-color: rgba(8, 8, 212, 0.937);
+  height: 100%;
+    overflow: hidden
+}
+
+h1{
+  font-size: 30px;
+  margin: 10px 20px;
+}
+
+.list {
+  border-radius: 20px 20px 20px 20px;
+    /*margin: auto;*/
+    /*margin:auto;*/
+    width:60%;
+    margin: 30% auto;
+    padding: 10px 20px;
+  background: white;
+}
+
+.add{
+  margin: 10px 20px;
+}
+
+.add_text{
+  width: 80%;
+    height: 25px;
+    border-radius: 5px 5px 5px 5px;
+}
+
+table{
+  margin: 40px 20px;
+}
+
+th {
+  width: 30%;
+    height: 30px;
+}
+
+.td_text {
+  width: 30%;
+  height: 40px;
+}
+
+.td_bottun {
+  width: 10%;
+  height: 40px;
+}
+
+.edit_text {
+  margin-left: auto;
+    display: block;
+    width: 90%;
+      height: 20px;
+  /*padding: auto 5px;
+  width: 90%;
+  height: 20px;*/
+  border-radius: 5px 5px 5px 5px;
+}
+.edit_bottun{
+  margin: auto;
+  display:block;
+  color: red;
+    background: white;
+    border-color: red;
+    border-radius: 5px;
+    padding: 6px 16px;
+}
+
+.delete_bottun {
+  margin: auto;
+  display: block;
+    color: green;
+      background: white;
+      border-color: green;
+      border-radius: 5px;
+      padding: 6px 16px;
+}
+
+.add_bottun{
+  color: purple;
+  background:white;
+  border-color: purple;
+  border-radius: 5px;
+  padding: 6px 16px;
+}
+

@@ -19,6 +19,41 @@ h1{
   background: white;
 }
 
+.flex {
+  display: flex;
+  justify-content: space-between;
+}
+
+.box {
+  display: flex;
+  justify-content: space-around;
+}
+
+.user_inf{
+  margin: auto;
+    display: block;
+}
+
+.logout_bottun{
+    margin: 6px 16px;
+      display: block;
+      color: red;
+      background: white;
+      border-color: red;
+      border-radius: 5px;
+      padding: 6px 16px;
+}
+
+.find_bottun {
+  margin: 6px 16px;
+  display: block;
+  color: rgb(24, 189, 244);
+  background: white;
+  border-color: rgb(13, 243, 185);
+  border-radius: 5px;
+  padding: 6px 16px;
+}
+
 .add{
   margin: 10px 20px;
 }
@@ -43,6 +78,11 @@ th {
   height: 40px;
 }
 
+.td_tag{
+    width: 10%;
+    height: 40px;
+  }
+
 .td_bottun {
   width: 10%;
   height: 40px;
@@ -66,6 +106,21 @@ th {
     border-color: red;
     border-radius: 5px;
     padding: 6px 16px;
+}
+
+.tag_add{
+
+    background: white;
+    border-radius: 5px;
+    padding: 6px 1px;
+  }
+
+.tag_edit {
+margin: auto;
+display: block;
+  background: white;
+  border-radius: 5px;
+  padding: 6px 1px;
 }
 
 .delete_bottun {

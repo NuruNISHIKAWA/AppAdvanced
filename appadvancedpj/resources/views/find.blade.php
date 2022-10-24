@@ -8,12 +8,12 @@
   <link rel="stylesheet" href="css/reset.css">
   <link rel="stylesheet" href="css/style.css">
 
-  <title>ToDoCRUD</title>
+  <title>find</title>
 </head>
 <body>
   <div class="list">
     <div class="flex">
-    <h1 class="box">Todo List</h1>
+    <h1 class="box">タスク検索</h1>
 
     <div class="box">
     <p class="user_inf">「{{$user->name }}」でログイン中</p>
@@ -24,11 +24,6 @@
       </form>
 </div>
 </div>
-
-<form action="/find" method="GET">
-      @csrf
-      <button class="find_bottun">タスク検索</button>
-      </form>
 
 
 
@@ -41,22 +36,22 @@
     @endforeach
     </ul>
     @endif
-    <form action="/add" method="POST" class="add">
+    <form action="/search" method="POST" class="add">
       @csrf
       
     <input type="text" name="task" class="add_text">
     <select name="tag_id" class="tag_add">
+      <option value='0'></option>
       @foreach ($tags->all() as $tag)
         <option value="{{$tag->id}}">{{$tag->tag}}</option>
         @endforeach
       </select>
       <input type="hidden" name="user_id" value="{{$user->id}}">
-    <button class="add_bottun">追加</button>
+    <button class="add_bottun">検索</button>
     <!--
     <button type="submit" name="add">追加</button>
 -->
     </form>
-
     <table>
     @csrf
       <tr>
@@ -66,21 +61,23 @@
         <th  class="td_bottun">更新</th>
         <th  class="td_bottun">削除</th>
         </tr>
-    @foreach ($todos as $todo)
+@if(@isset($forms))
+    @foreach ($forms as $form)
     <form action="/edit" method="POST">
       <tr>
         <td class="td_text">
-          {{$todo->created_at}}
-          <input type="hidden" name="id" value="{{$todo->id}}">
+          {{$form->created_at}}
+          <input type="hidden" name="id" value="{{$form->id}}">
+          <input type="hidden" name="key" value="key">
         </td>
         <td class="td_text">
-          <input type="text" name="task" value="{{$todo->task}}" class="edit_text">
+          <input type="text" name="task" value="{{$form->task}}" class="edit_text">
         </td>
         <td class="td_tag">
           <select name="tag_id" class="tag_edit">
             @foreach ($tags->all() as $tag)
-            @if($tag->id==$todo->tag_id)
-            <option  value="{{$tag->id}}" selected>{{$todo->tag->getTag()}}</option>
+            @if($tag->id==$form->tag_id)
+            <option  value="{{$tag->id}}" selected>{{$tag->tag}}</option>
             @else
             <option  value="{{$tag->id}}">{{$tag->tag}}</option>
             @endif
@@ -98,38 +95,18 @@
         </tr>
       </form>
     @endforeach
+             @endif
+
     </table>
 
+    <form action="/" method="GET">
+      @csrf
+      <button type="submit" class="find_bottun">戻る</button>
+      </form>
 
-    <!--
-  <form action="/" method="POST">
-    <table>
-    @csrf
-      <tr>
-        <th>作成日</th>
-        <th>タスク名</th>
-        <th>更新</th>
-        <th>削除</th>
-        </tr>
-    @foreach ($todos as $todo)
-      <tr>
-        <td>
-          {{$todo->created_at}}
-        </td>
-        <td>
-          <input type="text" name="name" value="{{$todo->task}}">
-        </td>
-        <td>
-          <button type="submit" name="update">更新</button>
-        </td>
-        <td>
-          <button type="submit" name="remove">削除</button>
-        </td>
-        </tr>
-    @endforeach
-    </table>
-  </form>
--->
+
+
+
 </div>
   
 </body>

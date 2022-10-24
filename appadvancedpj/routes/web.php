@@ -30,6 +30,9 @@ Route::post('/edit', [ListController::class, 'update']);
 Route::post('/delete', [ListController::class, 'remove']);
 Route::post('/change', [ListController::class, 'change']);
 
+Route::get('/find', [ListController::class, 'find']);
+Route::post('/search', [ListController::class, 'search']);
+
 Route::get('/session', [SessionController::class, 'getSes']);
 Route::post('/session', [SessionController::class, 'postSes']);
 
